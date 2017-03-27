@@ -1,2 +1,0 @@
-# CookingBuddy
-CS1635
