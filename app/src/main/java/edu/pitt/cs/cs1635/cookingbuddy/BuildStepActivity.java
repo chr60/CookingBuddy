@@ -1,170 +1,205 @@
 package edu.pitt.cs.cs1635.cookingbuddy;
 
+import android.content.DialogInterface;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.TabHost;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+/**
+ * Created by Chevaughn.
+ */
+public class BuildStepActivity extends MainActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
 
-public class BuildStepActivity extends MainActivity implements View.OnClickListener {
-
-    public static final int TEXT_STEP_LENGTH = 17;
-    private static ArrayList<String> keys;
-
-    static {
-        keys = new ArrayList<>();
-        keys.add("Beans");
-        keys.add("Beans1");
-        keys.add("Beans2");
-        keys.add("Beans3");
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_build_step);
+        setContentView(R.layout.activity_with_tabs);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        InitPremadeRecipes();
+        initTabs();
 
-        final Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                gri();
+        final ImageView mImageView = (ImageView) findViewById(R.id.imageSpace_imageView);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button button = (Button) findViewById(R.id.imageSpace_stepComplete);
+
+                if(button.isEnabled()){
+                    stepRedoValidation("Are you sure you want replace the image?");
+                }
+                else{
+                    mImageView.setImageResource(gri());
+                }
+                enableBtn(button);
+            }
+        });
+        mImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        ImageView view = (ImageView) v;
+                        view.getDrawable().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL: {
+                        ImageView view = (ImageView) v;
+                        view.getDrawable().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return false;
             }
         });
 
-        // change for done button later
-        final Button bt2 = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ;
+        final ImageView audioBtn = (ImageView) findViewById(R.id.audioSpace_imageView);
+        audioBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button button = (Button) findViewById(R.id.audioSpace_stepComplete);
+                if(button.isEnabled()){
+                    stepRedoValidation("Are you sure you want to replace the audio?");
+                }
+                else {
+                    audioBtn.setImageResource(gfa());
+                }
+                enableBtn(button);
+            }
+        });
+        audioBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        ImageView view = (ImageView) v;
+                        view.getDrawable().setColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL: {
+                        ImageView view = (ImageView) v;
+                        view.getDrawable().clearColorFilter();
+                        view.invalidate();
+                        break;
+                    }
+                }
+                return false;
             }
         });
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+        final EditText step_text = (EditText) findViewById(R.id.textSpace_editText);
 
-    private void InitPremadeRecipes() {
+        step_text.addTextChangedListener(new TextWatcher() {
+            String text;
 
-        HashMap<String, ArrayList<String>> map = new HashMap<>();
-
-        final Random rand = new Random();
-        int size = rand.nextInt() % 11;
-
-        for (int i = 0; i < keys.size(); i++) {
-            map.put(keys.get(i), generateSet(size));
-        }
-
-    }
-
-    public ArrayList<String> generateSet(int num) {
-
-        ArrayList arr = new ArrayList();
-        final Random rand = new Random();
-        for (int i = 0; i < num; i++) {
-            int next = rand.nextInt() % 3;
-            switch (next) {
-                case 0:
-                    arr.add(grt());
-                    break;
-                case 1:
-                    arr.add(gfa());
-                    break;
-                case 2:
-                    arr.add(gri());
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
-        }
-        return arr;
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                text = step_text.getText().toString();
+                Button button = (Button) findViewById(R.id.textSpace_stepComplete);
+
+                if (text.trim().length() == 0) {
+                    if (button.isEnabled()) {
+                        button.setClickable(false);
+                        button.setEnabled(false);
+                    }
+                } else {
+                    if (!button.isEnabled()) {
+                        button.setClickable(true);
+                        button.setEnabled(true);
+                    }
+                }
+            }
+        });
     }
 
-    public ImageView gfa() {
+    private void initTabs() {
 
-        ImageView img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.imageView1);
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+        tabHost.setup();
 
-        final Class drawableClass = R.drawable.class;
-        final Field[] fields = drawableClass.getFields();
-        Field mic = null;
-        for (Field field : fields) {
-            String str = field.getName();
-            if (str.contains("mic")) {
-                mic = field;
-                break;
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("tag1");
+        tabSpec.setContent(R.id.text_tab);
+        tabSpec.setIndicator("Text");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("tag2");
+        tabSpec.setContent(R.id.audio_tab);
+        tabSpec.setIndicator("Audio");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("tag3");
+        tabSpec.setContent(R.id.image_tab);
+        tabSpec.setIndicator("Image");
+        tabHost.addTab(tabSpec);
+
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                if (s.equals("tag2")) {
+
+                }
             }
-        }
-        try {
-            img.setImageResource(mic.getInt(drawableClass));
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        return img;
+        });
     }
 
-    public TextView grt() {
 
-        TextView tv = new TextView(this);
-        tv.setLayoutParams(new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT));
-
-        final String d_text = getString(R.string.recipe_text);
-        String r_t = null;
-        List<String> list = new ArrayList<>(Arrays.asList(d_text.split(" ")));
-        Collections.shuffle(list);
-        StringBuilder str = new StringBuilder();
-
-        int i = 1;
-        for (String line : list) {
-            str.append(line);
-            str.append(" ");
-            if (i % TEXT_STEP_LENGTH == 0) {
-                break;
-            }
-        }
-        r_t = str.toString().replaceAll("[^\\sA-Za-z0-9]", "") + ".";
-        tv.setText(r_t);
-
-        return tv;
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     }
 
-    public ImageView gri() {
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
 
-        ImageView img = (ImageView) findViewById(R.id.imageView1);
+    private void stepRedoValidation(String message) {
 
-        final Class drawableClass = R.drawable.class;
-        final Field[] fields = drawableClass.getFields();
+        AlertDialog.Builder builder = new AlertDialog.Builder(BuildStepActivity.this);
+        builder.setMessage(message);
+        builder.setTitle("Confirm replacement");
+        builder.setCancelable(false);
 
-        ArrayList<Field> arr = new ArrayList<Field>();
-        for (Field field : fields) {
-            String str = field.getName();
-            if (str.contains("image")) {
-                arr.add(field);
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                final ImageView mImageView = (ImageView) findViewById(R.id.imageSpace_imageView);
+                mImageView.setImageResource(gri());
+                dialog.cancel();
             }
-        }
+        });
 
-        final Random rand = new Random();
-        int rndInt = rand.nextInt(arr.size());
-        try {
-            int resID = arr.get(rndInt).getInt(drawableClass);
-            img.setImageResource(resID);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
 
-        return img;
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 
 }
