@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CookingBuddy</string>
+    <string name="titleBuild">Build</string>
+    <string name="titleSearch">Search</string>
+    <string name="titleMyRecipes">My Recipes</string>
+    <string name="titleMyFriends">My Friends</string>
+    <string name="savedRecipes">Saved Recipes</string>
+    <string name="fromFriends">From Friends</string>
+    <string name="userName">MSS133 Recipes</string>
 </resources>
