@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="#d1d1d1">
     <TextView
         android:text="@string/userName"
         android:textSize="50px"
@@ -16,93 +14,16 @@
         android:id="@+id/textView2"
         android:layout_marginBottom="20dp"
         />
-
-    <ScrollView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:id="@+id/listview_product"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:dividerHeight="10dp"
+        android:divider="#d1d1d1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <Button
-                android:text="Chicken and rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button26"/>
-
-            <Button
-                android:text="Pork and rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button27"/>
-
-            <Button
-                android:text="Beef and rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button28"/>
-
-            <Button
-                android:text="Fish and Rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button29"/>
-
-            <Button
-                android:text="Steak and Rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button30"/>
-
-            <Button
-                android:text="Rice and rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button31"/>
-
-
-            <Button
-                android:text="Turkey Sandwhich"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button32"/>
-
-            <Button
-                android:text="Ham and Cheese Sandwhich"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button33"/>
-
-            <Button
-                android:text="Sushi and rice"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button34"/>
-
-            <Button
-                android:text="Hot Dog"
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:id="@+id/button35"/>
-
-        </LinearLayout>
-    </ScrollView>
-    </LinearLayout>
-
-
+    </ListView>
 
 </LinearLayout>
