@@ -1,0 +1,43 @@
+package com.schwee.cookingbuddy;
+
+/**
+ * Created by 15mik_000 on 3/27/2017.
+ */
+
+public class Recipe {
+
+    private int id;
+    private String name;
+    //private  int price;
+
+    public Recipe(int id, String name/*, int price*/) {
+        this.id = id;
+        this.name = name;
+        //this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+/*
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+*/
+}
