@@ -29,7 +29,7 @@
         android:layout_marginTop="27dp"
         android:layout_below="@+id/search_results_title"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="25dp" />
+        />
 
     <TextView
         android:id="@+id/user_title"
@@ -37,71 +37,19 @@
         android:layout_height="wrap_content"
         android:text="@string/user_title"
         android:textSize="20dip"
-        android:layout_marginRight="25dp"
+        android:layout_marginRight="15dp"
         android:layout_alignBaseline="@+id/recipe_title"
         android:layout_alignBottom="@+id/recipe_title"
         android:layout_alignParentRight="true" />
 
-        <Button
-            android:id="@+id/result1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Green Beans \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t mss133"
-            android:layout_below="@id/recipe_title"
-            android:layout_marginTop="27dp"
-            android:gravity="left"
-            android:textSize="15dip"
-            />
-
-        <Button
-            android:id="@+id/result2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mac n' Cheese \t\t\t\t\t\t\t\t\t\t\t\t\t wsa312"
-            android:layout_below="@id/result1"
-            android:gravity="left"
-            android:textSize="15dip"
-            />
-
-        <Button
-            android:id="@+id/result3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sushi Bowl \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ejn639"
-            android:layout_below="@id/result2"
-            android:gravity="left"
-            android:textSize="15dip"
-            />
-
-        <Button
-            android:id="@+id/result4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fish soup \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t sef123"
-            android:layout_below="@id/result3"
-            android:gravity="left"
-            android:textSize="15dip"
-            />
-
-        <Button
-            android:id="@+id/result5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="spaghetti \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t abc123"
-            android:layout_below="@id/result4"
-            android:gravity="left"
-            android:textSize="15dip"
-            />
-
-        <Button
-            android:id="@+id/result6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ham Sandwich \t\t\t\t\t\t\t\t\t\t\t\t lmk412"
-            android:layout_below="@id/result5"
-            android:gravity="left"
-            android:textSize="15dip"
-            />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview_product"
+        android:layout_below="@id/recipe_title"
+        android:dividerHeight="5dp"
+        android:divider="#d1d1d1">
+    </ListView>
 
 
 </RelativeLayout>
