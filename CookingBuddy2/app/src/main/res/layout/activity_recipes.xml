@@ -1,186 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="#d1d1d1">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:orientation="vertical"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/lin1"
-                android:orientation="vertical"
-                android:gravity="center"
+
+
+
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-
-                <TextView
-                    android:text="@string/titleMyRecipes"
-                    android:textSize="50px"
-                    android:gravity="center"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/tView"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="34dp"/>
-
-                <ScrollView
+                android:layout_height="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:text="Green Bean Casserole"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button5"/>
-                        <Button
-                        android:text="Ratatouille"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:text="@string/titleMyRecipes"
+                        android:textSize="75px"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/button6"/>
-                        <Button
-                            android:text="Top Ramen"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button7"/>
+                        android:id="@+id/textView2"
+                        android:layout_marginBottom="20dp"
+                        />
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/listview_product"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:dividerHeight="10dp"
+                        android:divider="#d1d1d1">
+
+                    </ListView>
+                </LinearLayout>
+            </ScrollView>
 
 
-                    </LinearLayout>
-
-                </ScrollView>
-
-            </LinearLayout>
 
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_below="@+id/lin1"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-
-                <TextView
-                    android:text="@string/savedRecipes"
-                    android:textSize="50px"
-                    android:gravity="center"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/textView"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="34dp"/>
-
-                <ScrollView
+                android:layout_height="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
+
+                    <TextView
+                        android:text="@string/savedRecipes"
+                        android:textSize="75px"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView3"
+                        android:layout_marginBottom="20dp"
+                        />
+                    <ListView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent"
+                        android:id="@+id/listview_product2"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:dividerHeight="10dp"
+                        android:divider="#d1d1d1">
 
-                        <Button
-                            android:text="Boiled Rice"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button8"/>
-                        <Button
-                            android:text="Pad Thai"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button9"/>
-                        <Button
-                            android:text="Peanuts"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button10"/>
-                        <Button
-                            android:text="Fish Tofu"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button11"/>
-                        <Button
-                            android:text="Onions"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button12"/>
-                    </LinearLayout>
+                    </ListView>
+                </LinearLayout>
+            </ScrollView>
 
 
 
-                </ScrollView>
-
-                <TextView
-                    android:text="@string/fromFriends"
-                    android:textSize="50px"
-                    android:gravity="center"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="34dp"/>
-
-                <ScrollView
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
+
+                    <TextView
+                        android:text="@string/fromFriends"
+                        android:textSize="75px"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView4"
+                        android:layout_marginBottom="20dp"
+                        />
+                    <ListView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent"
+                        android:id="@+id/listview_product3"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:dividerHeight="10dp"
+                        android:divider="#d1d1d1">
 
-                        <Button
-                            android:text="Bean Stew"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button13"/>
-                        <Button
-                            android:text="Pork Stew"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button14"/>
-                        <Button
-                            android:text="Noodle Stew"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button15"/>
-                        <Button
-                            android:text="Green Bean Stew"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button16"/>
-                        <Button
-                            android:text="Beef Stew"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/button17"/>
-
-
-                    </LinearLayout>
-
-                </ScrollView>
-
-            </LinearLayout>
-
-        </RelativeLayout>
+                    </ListView>
+                </LinearLayout>
+            </ScrollView>
 
 
 
-    </ScrollView>
 
 
 
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>
