@@ -12,7 +12,7 @@
     tools:context="com.schwee.cookingbuddy.EasyActivity">
 
     <Button
-        android:text="Build"
+        android:text="@string/titleBuild"
         android:textSize="50px"
         android:layout_width="200dp"
         android:layout_height="100dp"
@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"/>
 
     <Button
-        android:text="Search"
+        android:text="@string/titleSearch"
         android:textSize="50px"
         android:layout_width="200dp"
         android:layout_height="100dp"
@@ -31,9 +31,17 @@
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button"
         android:layout_marginTop="20dp"/>
-
     <Button
-        android:text="My Recipes"
+        android:text="@string/titleMyRecipes"
+        android:textSize="50px"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button3"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:text="@string/titleMyFriends"
         android:textSize="50px"
         android:layout_width="200dp"
         android:layout_height="100dp"
@@ -43,14 +51,6 @@
         android:layout_alignRight="@+id/button2"
         android:layout_alignEnd="@+id/button2"/>
 
-    <Button
-        android:text="My Friends"
-        android:textSize="50px"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
@@ -18,7 +18,7 @@
 
 
                 <TextView
-                    android:text="My Recipes"
+                    android:text="@string/titleMyRecipes"
                     android:textSize="50px"
                     android:gravity="center"
                     android:layout_width="200dp"
@@ -31,6 +31,7 @@
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <LinearLayout
                         android:orientation="vertical"
                         android:gravity="center"
@@ -41,17 +42,17 @@
                             android:text="Green Bean Casserole"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button1"/>
+                            android:id="@+id/button5"/>
                         <Button
                         android:text="Ratatouille"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/button2"/>
+                        android:id="@+id/button6"/>
                         <Button
                             android:text="Top Ramen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button3"/>
+                            android:id="@+id/button7"/>
 
 
                     </LinearLayout>
@@ -71,7 +72,7 @@
 
 
                 <TextView
-                    android:text="Saved Recipes"
+                    android:text="@string/savedRecipes"
                     android:textSize="50px"
                     android:gravity="center"
                     android:layout_width="200dp"
@@ -84,6 +85,7 @@
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <LinearLayout
                         android:orientation="vertical"
                         android:gravity="center"
@@ -94,27 +96,80 @@
                             android:text="Boiled Rice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button4"/>
+                            android:id="@+id/button8"/>
                         <Button
                             android:text="Pad Thai"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button7"/>
+                            android:id="@+id/button9"/>
                         <Button
                             android:text="Peanuts"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button6"/>
+                            android:id="@+id/button10"/>
                         <Button
-                            android:text="Pad Thai"
+                            android:text="Fish Tofu"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button20"/>
+                            android:id="@+id/button11"/>
                         <Button
-                            android:text="Peanuts"
+                            android:text="Onions"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/button21"/>
+                            android:id="@+id/button12"/>
+                    </LinearLayout>
+
+
+
+                </ScrollView>
+
+                <TextView
+                    android:text="@string/fromFriends"
+                    android:textSize="50px"
+                    android:gravity="center"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="34dp"/>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:text="Bean Stew"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button13"/>
+                        <Button
+                            android:text="Pork Stew"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button14"/>
+                        <Button
+                            android:text="Noodle Stew"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button15"/>
+                        <Button
+                            android:text="Green Bean Stew"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button16"/>
+                        <Button
+                            android:text="Beef Stew"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button17"/>
+
+
                     </LinearLayout>
 
                 </ScrollView>
@@ -125,7 +180,7 @@
 
 
 
-    </LinearLayout>
+    </ScrollView>
 
 
 
