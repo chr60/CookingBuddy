@@ -1,6 +1,7 @@
 package edu.pitt.cs.cs1635.cookingbuddy;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -132,6 +133,35 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
                         button.setEnabled(true);
                     }
                 }
+            }
+        });
+
+        Button txtComplete = (Button) findViewById(R.id.textSpace_stepComplete);
+        txtComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent myIntent = new Intent(BuildStepActivity.this, BuildActivity.class);
+               // myIntent.putExtra("key", value); //Optional parameters
+                BuildStepActivity.this.startActivity(myIntent);
+            }
+        });
+
+        Button audioComplete = (Button) findViewById(R.id.audioSpace_stepComplete);
+        audioComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(BuildStepActivity.this, BuildActivity.class);
+                BuildStepActivity.this.startActivity(myIntent);
+            }
+        });
+
+        Button imgComplete = (Button) findViewById(R.id.imageSpace_stepComplete);
+        imgComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(BuildStepActivity.this, BuildActivity.class);
+                BuildStepActivity.this.startActivity(myIntent);
             }
         });
     }
