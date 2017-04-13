@@ -1,19 +1,18 @@
 package edu.pitt.cs.cs1635.cookingbuddy;
 
 /**
- * Created by 15mik_000 on 3/27/2017.
+ * Created by Michael on 3/28/2017.
  */
 
 public class Recipe {
-
     private int id;
     private String name;
-    //private  int price;
 
-    public Recipe(int id, String name/*, int price*/) {
+
+    public Recipe(int id, String name) {
         this.id = id;
         this.name = name;
-        //this.price = price;
+
     }
 
     public int getId() {
@@ -31,13 +30,4 @@ public class Recipe {
     public void setName(String name) {
         this.name = name;
     }
-/*
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-*/
 }

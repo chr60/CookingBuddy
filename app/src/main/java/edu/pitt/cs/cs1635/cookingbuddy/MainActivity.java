@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static {
         navMap = new HashMap<String, Object>();
         navMap.put("build", BuildActivity.class);
-        navMap.put("recipes", MyRecipesActivity.class);
+        navMap.put("myrecipes", MyRecipesActivity.class);
+        navMap.put("search", SearchActivity.class);
     }
     private static ArrayList<String> keys;
     static {

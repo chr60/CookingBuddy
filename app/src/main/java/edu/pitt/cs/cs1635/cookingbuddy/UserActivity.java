@@ -35,7 +35,7 @@ public class UserActivity extends AppCompatActivity {
         mRecipeList.add(new Recipe(9,"Sushi and rice"));
 
 
-        adapter = new RecipeListAdapter(getApplicationContext(),mRecipeList);
+        adapter = new RecipeListAdapter(getApplicationContext(),mRecipeList, null);
                 lvProduct.setAdapter(adapter);
 
         lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {

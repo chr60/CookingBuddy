@@ -42,7 +42,7 @@ public class MyRecipesActivity extends MainActivity {
         mRecipeList.add(new Recipe(9,"Sushi and rice"));
 
 
-        adapter = new RecipeListAdapter(getApplicationContext(),mRecipeList);
+        adapter = new RecipeListAdapter(getApplicationContext(),mRecipeList, null);
         lvProduct.setAdapter(adapter);
 
         lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -70,7 +70,7 @@ public class MyRecipesActivity extends MainActivity {
         mRecipeList2.add(new Recipe(9,"Sushi and rice"));
 
 
-        adapter2 = new RecipeListAdapter(getApplicationContext(),mRecipeList2);
+        adapter2 = new RecipeListAdapter(getApplicationContext(),mRecipeList2, null);
         lvProduct2.setAdapter(adapter2);
 
         lvProduct2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,7 +97,7 @@ public class MyRecipesActivity extends MainActivity {
         mRecipeList3.add(new Recipe(9,"Sushi and rice"));
 
 
-        adapter3 = new RecipeListAdapter(getApplicationContext(),mRecipeList3);
+        adapter3 = new RecipeListAdapter(getApplicationContext(),mRecipeList3, null);
         lvProduct3.setAdapter(adapter3);
 
         lvProduct3.setOnItemClickListener(new AdapterView.OnItemClickListener() {

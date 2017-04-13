@@ -18,6 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+    <activity
+    android:name=".SearchActivity"
+    android:label="SearchActivity"
+    android:parentActivityName=".MainActivity"
+    android:theme="@style/AppTheme.NoActionBar">
+    <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value="edu.pitt.cs.cs1635.cookingbuddy.MainActivity" />
+    </activity>
+
         <activity
             android:name=".BuildStepActivity"
             android:label="@string/title_activity_build_step"
@@ -27,6 +38,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.pitt.cs.cs1635.cookingbuddy.MainActivity" />
         </activity>
+
         <activity
             android:name=".BuildActivity"
             android:label="@string/title_activity_build"
