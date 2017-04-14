@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:id="@+id/audioSpace_hint">
+
+            <TextView
+                android:text="Click image below to add audio."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView" />
+
+            <ImageView android:layout_width="match_parent"
+                android:id="@+id/audioSpace_imageView"
+                android:src="@drawable/mic_icon"
+                android:layout_height="364dp"
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                android:hint="Click to add audio."
+                android:clickable="true"
+                android:adjustViewBounds="false" />
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:hint="Add Caption"
+            android:paddingTop="5dp"/>
+
+        <Button
+            android:text="Done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/audioSpace_stepComplete"
+            android:enabled="false"/>
+    </LinearLayout>
+
+</ScrollView>
