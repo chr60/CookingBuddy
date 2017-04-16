@@ -6,12 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 
 import java.io.File;
 import java.util.Calendar;
@@ -20,13 +15,13 @@ import java.util.Calendar;
  * Created by chevy on 3/15/17.
  */
 
-public class MyCameraService extends AppCompatActivity {
+public class MyCameraService extends MainActivity {
 
     private static final int TAKE_PICTURE = 1;
     private Uri imageUri;
-    private View imageComponent;
+    private Bitmap imageComponent;
     
-    public View takePhoto() {
+    public Bitmap takePhoto() {
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -40,33 +35,33 @@ public class MyCameraService extends AppCompatActivity {
         return imageComponent;
     }
 
-    private View FrameImage(Uri uri){
+    private Bitmap FrameImage(Uri uri){
 
-        LinearLayout linearLayout= new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT));
+//        LinearLayout linearLayout= new LinearLayout(this);
+//        linearLayout.setOrientation(LinearLayout.VERTICAL);
+//        linearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+//                LayoutParams.MATCH_PARENT));
 
 
         Bitmap bitmap = null;
         try {
             getContentResolver().notifyChange(uri, null);
-            bitmap = android.provider.MediaStore.Images.Media.getBitmap(
+            bitmap = MediaStore.Images.Media.getBitmap(
                     getContentResolver(), uri
             );
         } catch (Exception e) {
             Log.e("Camera", e.getMessage());
         }
 
-        ImageView imageView = new ImageView(this);
-        imageView.setImageBitmap(bitmap);
-        imageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.WRAP_CONTENT));
+//        ImageView imageView = new ImageView(this);
+//        imageView.setImageBitmap(bitmap);
+//        imageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+//                LayoutParams.WRAP_CONTENT));
 
-        linearLayout.addView(imageView);
-        setContentView(linearLayout);
+ //       linearLayout.addView(imageView);
+        //setContentView(linearLayout);
 
-        return linearLayout;
+        return bitmap;
     }
 
     @Override
