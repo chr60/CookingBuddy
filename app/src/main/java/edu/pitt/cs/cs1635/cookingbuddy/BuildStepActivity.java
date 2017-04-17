@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
@@ -27,8 +26,6 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_tabs);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         initTabs();
 
@@ -149,9 +146,9 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
         txtComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final EditText step_text = (EditText) findViewById(R.id.textSpace_editText);
+                BuildActivity.steps.add(step_text.getText());
                 Intent myIntent = new Intent(BuildStepActivity.this, BuildActivity.class);
-               // myIntent.putExtra("key", value); //Optional parameters
                 BuildStepActivity.this.startActivity(myIntent);
             }
         });
@@ -160,6 +157,8 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
         audioComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ImageView audio = (ImageView) findViewById(R.id.audioSpace_imageView);
+                BuildActivity.steps.add(audio);
                 Intent myIntent = new Intent(BuildStepActivity.this, BuildActivity.class);
                 BuildStepActivity.this.startActivity(myIntent);
             }
@@ -169,10 +168,14 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
         imgComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ImageView img = (ImageView) findViewById(R.id.imageSpace_imageView);
+                BuildActivity.steps.add(img);
                 Intent myIntent = new Intent(BuildStepActivity.this, BuildActivity.class);
                 BuildStepActivity.this.startActivity(myIntent);
             }
         });
+        //TODO: Add caption text too
+
     }
 
     private void initTabs() {

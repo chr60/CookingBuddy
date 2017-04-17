@@ -63,7 +63,8 @@ public class mLoginActivity extends MainActivity {
                 }
                 else {
                     if (isValidLogin(email, password)){
-
+                        setResult(RESULT_OK, null);
+                        finish();
                     }
                     else {
                         mFeedBack = (TextView) findViewById(R.id.login_feedback);

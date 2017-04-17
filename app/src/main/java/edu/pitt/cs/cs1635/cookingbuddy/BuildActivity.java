@@ -2,8 +2,6 @@ package edu.pitt.cs.cs1635.cookingbuddy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -15,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class BuildActivity extends AppCompatActivity {
+public class BuildActivity extends MainActivity {
 
     static ArrayList steps = new ArrayList();
 
@@ -23,8 +21,9 @@ public class BuildActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.notrealltlistview);
 
@@ -68,7 +67,7 @@ public class BuildActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                steps.add("");
+                //steps.add("");
                 Intent myIntent = new Intent(BuildActivity.this, BuildStepActivity.class);
                 BuildActivity.this.startActivity(myIntent);
 

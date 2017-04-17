@@ -23,7 +23,7 @@ public class SearchActivity extends MainActivity {
         EditText user_field = (EditText) findViewById(R.id.user_field);
         TextView error_message = (TextView) findViewById(R.id.error_message);
 
-        if(title_field.getText().length() == 0 && ingredient_field.getText().length() == 0 && user_field.getText().length() == 0) {
+        if (title_field.getText().length() == 0 && ingredient_field.getText().length() == 0 && user_field.getText().length() == 0) {
             error_message.setText(R.string.search_error);
         } else {
             Intent intent = new Intent(this, Search_Results.class);

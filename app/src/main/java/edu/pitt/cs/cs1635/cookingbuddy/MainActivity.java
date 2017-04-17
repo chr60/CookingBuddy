@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navMap = new HashMap<String, Object>();
         navMap.put("build", BuildActivity.class);
         navMap.put("myrecipes", MyRecipesActivity.class);
-        navMap.put("search", SearchActivity.class);
+        navMap.put("search", SearchActivityHandler.class);
     }
     private static ArrayList<String> keys;
     static {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         keys.add("Beans3");
     }
 
-    private static String processStr(String s) {
+    protected static String processStr(String s) {
         return s.replaceAll("[^a-zA-Z]", "").trim().toLowerCase();
     }
 
@@ -57,29 +57,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
         //initPremadeRecipes();
 
         if (user == null) {
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    Intent intent = new Intent(MainActivity.this, mLoginActivity.class);
-                    startActivity(intent);
-                    user = new User("username");
-                }
-            });
-
+           // runLoginActivity();
         }
         else {
 
         }
     }
 
+    private void runLoginActivity(){
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, mLoginActivity.class);
+                startActivity(intent);
+                user = new User("username");
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return true;
     }
 
@@ -88,11 +93,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == Menu.FIRST){
+            user = null;
+            runLoginActivity();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
+        menu.add(0, Menu.FIRST, Menu.NONE, "Logout");
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -246,13 +259,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean isValidPair(String e, String p){
-        try{
+        try {
             return sp.getAll().get(e).equals(p);
         }
         catch (Exception k){
             Log.e("email_password", k.toString());
             return false;
         }
+        //TODO: Attach to actual model
     }
 
 }

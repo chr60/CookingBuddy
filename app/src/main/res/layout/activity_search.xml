@@ -4,8 +4,7 @@
     android:id="@+id/activity_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dip"
-    tools:context="edu.pitt.cs.cs1635.miz37.CookingBuddy.SearchActivity">
+    android:padding="20dip">
 
     <TextView
         android:id="@+id/search_title"
