@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +22,12 @@ import android.widget.TabHost;
  */
 public class BuildStepActivity extends MainActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
 
+
+    static Bitmap currentImage;
+
+    public static void setCurrentImage(Bitmap currentImage) {
+        BuildStepActivity.currentImage = currentImage;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +43,17 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
                 Button button = (Button) findViewById(R.id.imageSpace_stepComplete);
 
                 if(button.isEnabled()){
-                    boolean shouldReplace = stepRedoValidation("Are you sure you want replace the image?");
 
-                    if (shouldReplace){
-                        Bitmap v = new MyCameraService().takePhoto();
-                        final ImageView mImageView = (ImageView) findViewById(R.id.imageSpace_imageView);
-                        mImageView.setImageBitmap(v);
-                        //mImageView.setImageResource();
-                    }
+                    Intent myIntent = new Intent(BuildStepActivity.this, MyCameraService.class);
+                    BuildStepActivity.this.startActivity(myIntent);
+
+                    Bitmap v = currentImage;
+                    final ImageView mImageView = (ImageView) findViewById(R.id.imageSpace_imageView);
+                    mImageView.setImageBitmap(v);
+
+
+                    Log.d("IMAGE_HERE", v.toString());
+                      //  mImageView.setImageResource();
 
                 }
                 else {
@@ -218,6 +228,7 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
+    static AlertDialog alert;
     private boolean stepRedoValidation(String message) {
 
         final boolean[] shouldRedo = {false};
@@ -243,9 +254,10 @@ public class BuildStepActivity extends MainActivity implements View.OnClickListe
             }
         });
 
-        AlertDialog alert = builder.create();
+        alert = builder.create();
         alert.show();
 
+        Log.d("SHOULD DO?", shouldRedo[0]+"");
         return shouldRedo[0];
     }
 

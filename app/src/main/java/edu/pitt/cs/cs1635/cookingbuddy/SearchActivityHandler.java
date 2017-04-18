@@ -92,6 +92,8 @@ public class SearchActivityHandler extends SearchActivity {
         for (Object str : terms){
             Log.d("terms", str.toString());
         }
+
+       // fetchRecipesByTerms()
     }
 
 
@@ -104,13 +106,6 @@ public class SearchActivityHandler extends SearchActivity {
     private void mOnClickHandler(View view){
 
         search();
-//        Button searchBtn = (Button) findViewById(R.id.search_button);
-//        searchBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                search();
-//            }
-//        });
 
     }
 

@@ -79,7 +79,8 @@
         android:layout_below="@+id/user_field"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:onClick="newView" />
+        android:onClick="newView"
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/error_message"

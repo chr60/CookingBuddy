@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -15,12 +16,22 @@ import java.util.Calendar;
  * Created by chevy on 3/15/17.
  */
 
-public class MyCameraService extends MainActivity {
+public class MyCameraService extends BuildStepActivity {
 
     private static final int TAKE_PICTURE = 1;
     private Uri imageUri;
     private Bitmap imageComponent;
-    
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.e("HERE", "HERE");
+        takePhoto();
+        finish();
+    }
+
+
     public Bitmap takePhoto() {
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -30,18 +41,14 @@ public class MyCameraService extends MainActivity {
 
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photo));
         imageUri = Uri.fromFile(photo);
+        Log.d("INTENT", intent.toString());
         startActivityForResult(intent, TAKE_PICTURE);
 
+        BuildStepActivity.setCurrentImage(imageComponent);
         return imageComponent;
     }
 
     private Bitmap FrameImage(Uri uri){
-
-//        LinearLayout linearLayout= new LinearLayout(this);
-//        linearLayout.setOrientation(LinearLayout.VERTICAL);
-//        linearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-//                LayoutParams.MATCH_PARENT));
-
 
         Bitmap bitmap = null;
         try {
@@ -52,14 +59,6 @@ public class MyCameraService extends MainActivity {
         } catch (Exception e) {
             Log.e("Camera", e.getMessage());
         }
-
-//        ImageView imageView = new ImageView(this);
-//        imageView.setImageBitmap(bitmap);
-//        imageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-//                LayoutParams.WRAP_CONTENT));
-
- //       linearLayout.addView(imageView);
-        //setContentView(linearLayout);
 
         return bitmap;
     }
@@ -76,36 +75,6 @@ public class MyCameraService extends MainActivity {
                 }
                 break;
             }
-
-
-//            case Flashum.TAKE_MUSIC:
-//            case Flashum.TAKE_VOICE:
-//                if (resultCode == Activity.RESULT_OK)
-//                {
-//                    Log.i(Flashum.LOG_TAG, "onActivityResult got new music");
-//                    Bundle extras = data.getExtras();
-//                    try {
-//                        Uri u = data.getData();
-//                        String imageUri;
-//                        try {
-//                            imageUri = getRealPathFromURI(u);
-//                        } catch (Exception ex) {
-//                            imageUri = u.getPath();
-//                        }
-//                        File file = new File(imageUri);
-//                        FragmentFlash fragmentFlash = (FragmentFlash)mTabsAdapter.getFragment("flash");
-//                        if (fragmentFlash != null)
-//                            fragmentFlash.gotMusic(file.getPath());
-//                    } catch (Exception ex) {
-//                        String s = ex.toString();
-//                        Log.i(Flashum.LOG_TAG, "onActivityResult " + s);
-//                    }
-//                }
-//                else
-//                {
-//                    Log.i(Flashum.LOG_TAG, "onActivityResult Failed to get music");
-//                }
-//                break;
         }
     }
 

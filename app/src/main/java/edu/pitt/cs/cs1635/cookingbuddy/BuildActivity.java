@@ -22,9 +22,6 @@ public class BuildActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview_activity);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.notrealltlistview);
 
         int stepNum = 1;
